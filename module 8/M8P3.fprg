@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M8P3"/>
+        <attribute name="authors" value="shama"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 11:17:25 AM"/>
+        <attribute name="created" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTA6MjY6NDQgQU07MjkxOQ=="/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTE6MTc6MjUgQU07MjszMDI4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="name" type="String" array="False" size=""/>
+            <declare name="salary, rate, bonus, totalBonus" type="Real" array="False" size=""/>
+            <assign variable="totalBonus" expression="0"/>
+            <open expression="&quot;Employees.txt&quot;" mode="read"/>
+            <read variable="name"/>
+            <while expression="NOT EOF()">
+                <read variable="salary"/>
+                <if expression="salary &gt;= 100000.00">
+                    <then>
+                        <assign variable="rate" expression="0.20"/>
+                    </then>
+                    <else>
+                        <if expression="salary&gt;=50000">
+                            <then>
+                                <assign variable="rate" expression="0.15"/>
+                            </then>
+                            <else>
+                                <assign variable="rate" expression="0.10"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <assign variable="bonus" expression="salary*rate"/>
+                <assign variable="totalBonus" expression="totalBonus+bonus"/>
+                <output expression="name &amp; &quot; | Salary: $&quot; &amp; ToFixed(salary, 2) &amp; &quot; | Bonus: $&quot; &amp; ToFixed(bonus, 2)" newline="True"/>
+                <read variable="name"/>
+            </while>
+            <close mode="read"/>
+            <output expression="&quot;Total Bonuses Paid Out: $&quot; &amp; ToFixed(totalBonus, 2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

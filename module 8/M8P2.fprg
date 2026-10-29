@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M8P2"/>
+        <attribute name="authors" value="shama"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 10:26:36 AM"/>
+        <attribute name="created" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTA6MTA6MzYgQU07MjkxMw=="/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTA6MjY6MzYgQU07MTszMDI4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="first, second, nextNumber, count" type="Integer" array="False" size=""/>
+            <assign variable="first" expression="1"/>
+            <assign variable="second" expression="1"/>
+            <assign variable="count" expression="1"/>
+            <while expression="count&lt;=21">
+                <output expression="first" newline="True"/>
+                <assign variable="nextNumber" expression="first+second"/>
+                <assign variable="first" expression="second"/>
+                <assign variable="second" expression="nextNumber"/>
+                <assign variable="count" expression="count+1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

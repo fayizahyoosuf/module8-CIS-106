@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M8P1"/>
+        <attribute name="authors" value="shama"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 10:10:30 AM"/>
+        <attribute name="created" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MDk6NDA6MDggQU07MjkyMw=="/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTA6MTA6MzAgQU07MTszMDE1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="principal, rate, interest, endingBalance, totalInterest" type="Real" array="False" size=""/>
+            <declare name="year" type="Integer" array="False" size=""/>
+            <assign variable="totalInterest" expression="0"/>
+            <input variable="principal"/>
+            <input variable="rate"/>
+            <output expression="&quot;Year     Beginning Balance     Ending Balance&quot;" newline="True"/>
+            <for variable="year" start="1" end="5" direction="inc" step="1">
+                <assign variable="interest" expression="principal*rate"/>
+                <assign variable="endingbalance" expression="principal+interest"/>
+                <assign variable="totalInterest" expression="totalInterest+interest"/>
+                <output expression="year &amp; &quot;        $&quot; &amp; ToFixed(principal, 2) &amp; &quot;               $&quot; &amp; ToFixed(endingBalance, 2)" newline="True"/>
+                <assign variable="principal" expression="endingBalance"/>
+            </for>
+            <output expression="&quot;Total interest : $&quot; &amp; ToFixed(totalInterest,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,15 @@
+Widget
+10
+50
+Hammer
+2
+10
+Saw
+4
+8
+Drill
+3
+45.50
+Pliers
+6
+12.25

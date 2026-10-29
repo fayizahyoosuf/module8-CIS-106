@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M8P4"/>
+        <attribute name="authors" value="shama"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 11:51:15 AM"/>
+        <attribute name="created" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTE6MTg6MDEgQU07MjkxNA=="/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTAtMjk7MTE6NTE6MTUgQU07MjszMDI1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="item" type="String" array="False" size=""/>
+            <declare name="quantity, orderCount" type="Integer" array="False" size=""/>
+            <declare name="price, extprice, extended, total" type="Real" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <assign variable="orderCount" expression="0"/>
+            <open expression="&quot;orders.txt&quot;" mode="read"/>
+            <read variable="item"/>
+            <while expression="item!=&quot;&quot;">
+                <read variable="quantity"/>
+                <read variable="price"/>
+                <assign variable="extended" expression="quantity*price"/>
+                <assign variable="total" expression="total+extended"/>
+                <assign variable="orderCount" expression="orderCount+1"/>
+                <output expression="item &amp; &quot;  Qty: &quot; &amp; quantity &amp; &quot;   Price: $&quot; &amp; ToFixed(price, 2) &amp; &quot;   Extended: $&quot; &amp; ToFixed(extended, 2)" newline="True"/>
+                <read variable="item"/>
+            </while>
+            <close mode="read"/>
+            <output expression="&quot;Sum of extended prices: $&quot; &amp; ToFixed(total, 2)" newline="True"/>
+            <output expression="&quot;Number of orders: &quot; &amp; orderCount" newline="True"/>
+            <if expression="orderCount &gt; 0">
+                <then>
+                    <output expression="&quot;Average order: $&quot; &amp; ToFixed(total / orderCount, 2)" newline="True"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
